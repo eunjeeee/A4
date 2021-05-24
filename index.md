@@ -10,7 +10,7 @@
 - 
 <p align='center'>
   <img src='./image/01.PNG'>
-  <figcaption>Fig 1. Two LDR exposures, and an HDR composite tonemapped using the photographic tonemapping
+  <figcaption>Fig 1. Two LDR exposures, and an HDR composite tonemapped using the photographic tonemapping </figcaption>
 </p>
 
 <p align='center'>
