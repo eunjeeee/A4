@@ -24,22 +24,18 @@
 사용한 flags
 
 1. white balancing 수행
-
 -w : Use camera white balance, if possible
 
 2. sRGB를 출력 colorspace로 사용
-
 -o 1 : Output colorspace (raw, sRGB, Adobe, Wide, ProPhoto, XYZ, ACES) / 1 sRGB D65 (기본값)
 
 3. high-quality interpolation을 사용하여 demosaicing 수행
-
 -q 3 : Set the interpolation quality / AHD (Adaptive Homogeneity-Directed) interpolation 사용
 
 4. linear 16-bit .TIFF images
-
 -T : Write TIFF instead of PPM
-
 -6 : Write 16-bit instead of 8-bit
+
 <p align='center'>
   <img src='./image/dcraw.png' width="500px">
 </p>
