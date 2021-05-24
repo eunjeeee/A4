@@ -133,6 +133,7 @@ for idx_weight=1:3
 end
 ```
 
+
 ## TONEMAPPING
 #### Photographic Tonemapping
 - 톤 매핑 연산자 구현
