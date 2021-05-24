@@ -97,7 +97,7 @@ elseif strcmp(WEIGHT_TYPE, 'gaussian')
 
 #### Evaluation
 - linearity check 방법 : color checker
-- 패치 4,8,12,16,20,24는 거의 완전한 중립 패치이므로 이상적인 HDR 이미지라면 직선이 생김
+- 패치 4,8,12,16,20,24는 거의 완전한 중립 패치이므로 이상적인 HDR 이미지라면 직선
 
 <p align='center'>
   <img src='./image/evaluation.PNG' width="700px">
