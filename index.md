@@ -39,6 +39,9 @@
   <img src='./image/dcraw.png' width="500px">
 </p>
 
+#### Linearize Rendered Images
+
+
 
 ```matlab
 list1 = impyramid(frame_list, 'reduce');
