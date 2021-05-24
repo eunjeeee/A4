@@ -5,9 +5,12 @@
 </p>
 
 ### HDR IMAGING
-- HDR (High Dynamic Range) imaging 및 tonemapping 탐색
-- HDR imaging을 사용하여 scene radiance values에 선형으로 매핑되는 floating-point precision images 만듦
-- 
+과제에 사용된 이미지의 특징
+1. single exposure로 찍기 힘든 매우 다른 illumination과 dynamic range을 가진 영역이 있음
+2. 두 영역 모두 결과의 색상 표현을 평가하는데 사용할 수 있는 여러 항목을 포함하고 있음
+3. 결과의 해상도를 평가하는데 사용할 수 있는 높은 세부 기능 (lens/camera markings)
+4. 색상 보정에 사용할 수 있는 색상 검사기가 있음
+
 <p align='center'>
   <img src='./image/01.PNG'>
   <figcaption>Fig 1. Two LDR exposures, and an HDR composite tonemapped using the photographic tonemapping </figcaption>
