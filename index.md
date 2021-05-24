@@ -1,11 +1,11 @@
 # Homework Assignment 4 
-### Eulerian Video Magnification
+### HDR IMAGING
 
 <p align='right'>
   2021314078 배은지
 </p>
 
-Eulerian Video Magnification : 육안으로 볼 수 없는 미묘한 변화들을 추출하는 알고리즘
+
 
 <p align='center'>
   <img src='./image/original.PNG' width="500px">
