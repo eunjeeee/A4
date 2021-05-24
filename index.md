@@ -1,4 +1,4 @@
-# Homework Assignment 2 
+# Homework Assignment 4 
 ### Eulerian Video Magnification
 
 <p align='right'>
