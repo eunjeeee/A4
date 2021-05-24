@@ -41,12 +41,94 @@
 </p>
 
 #### Linearize Rendered Images
+- 비선형 렌더링 이미지를 선형으로 변화하고자 함
+- 수식(2)을 이용하여 least squares optimization problem을 해결
+<p align='center'>
+  <img src='./image/2.PNG' width="500px">
+</p>
 
+- lambda는 'g'곡선의 스무딩에 제한을 줌
+- 아래 그림의 첫 줄은 `lambda=500`, 두번째 줄은 `lambda=1000`
 
+<p align='center'>
+  <img src='./image/grrr.png' width="800px">
+</p>
 
 ```matlab
-list1 = impyramid(frame_list, 'reduce');
-list2 = impyramid(list1, 'reduce');
-list3 = impyramid(list2, 'reduce');
-list4 = impyramid(list3, 'reduce');
+if strcmp(WEIGHT_TYPE, 'uniform') 
+    for i=1:256
+        if Zmin <= (i - 1) / 255 && (i - 1) / 255 <= Zmax
+            w(i, 1) = 1;
+        end
+    end
+elseif strcmp(WEIGHT_TYPE, 'tent') 
+    for i=1:256
+        if Zmin <= (i - 1) / 255 && (i - 1) / 255 <= Zmax
+            Zvalue = (i - 1) / 255;
+            w(i, 1) = -2 * abs(2*Zvalue-1) + 2;
+        end
+    end
+elseif strcmp(WEIGHT_TYPE, 'gaussian') 
+    for i=1:256
+        if Zmin <= (i - 1) / 255 && (i - 1) / 255 <= Zmax
+            Zvalue = (i - 1) / 255;
+            w(i, 1) = normpdf(Zvalue, 0.5, 1/6);
+        end
+    end
+```
+
+#### Merge Exposure Stack into HDR Image
+- HDR 이미지로 병합하고자 함
+- linear merging :
+<p align='center'>
+  <img src='./image/5.PNG' width="190px">
+</p>
+
+- logarithmic merging :
+<p align='center'>
+  <img src='./image/6.PNG' width="270px">
+</p>
+
+<p align='center'>
+  <img src='./image/uniform_image.PNG' width="800px">
+  <img src='./image/tent_image.PNG' width="800px">
+  <img src='./image/gaussian_image.PNG' width="800px">
+</p>
+
+#### Evaluation
+- color checker
+- 패치 4,8,12,16,20,24는 거의 완전한 중립 패치이므로 이상적인 HDR 이미지라면 직선이 생김
+
+<p align='center'>
+  <img src='./image/evaluation.PNG' width="700px">
+</p>
+
+```matlab
+e = 0;
+figure;
+for idx_weight=1:3
+    for idx_merge=1:2
+        e = e + 1;
+        X = ones(6, 2);
+        y = zeros(6, 1);
+        for i=1:6
+            intensity(idx_weight, idx_merge, i) = log(mean(mean(mean(image_stack{idx_weight, idx_merge}(position(i, 2):position(i, 4), position(i, 3):position(i, 1), 2)))));
+ 
+            y(i, 1) = intensity(idx_weight, idx_merge, i);
+            X(i, 2) = i;
+        end
+        % Linear regression solver
+        b = X \ y;
+        yCalc = X * b;
+        
+        Rsq = 1 - sum((y - yCalc).^2) / sum((y - mean(y)).^2);
+        
+        subplot(3, 2, e);
+        plot(X(:, 2), yCalc);
+        hold on;
+        scatter(X(:, 2), y);
+        hold off;
+        title(sprintf('%s %s', weight_type{idx_weight}, merge_type{idx_merge}));
+    end
+end
 ```
