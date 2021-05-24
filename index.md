@@ -112,7 +112,10 @@ for idx_weight=1:3
         X = ones(6, 2);
         y = zeros(6, 1);
         for i=1:6
-            intensity(idx_weight, idx_merge, i) = log(mean(mean(mean(image_stack{idx_weight, idx_merge}(position(i, 2):position(i, 4), position(i, 3):position(i, 1), 2)))));
+            intensity(idx_weight, idx_merge, i) 
+            = log(mean(mean(mean(image_stack{idx_weight, 
+            idx_merge}(position(i, 2):position(i, 4), 
+            position(i, 3):position(i, 1), 2)))));
  
             y(i, 1) = intensity(idx_weight, idx_merge, i);
             X(i, 2) = i;
