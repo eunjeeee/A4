@@ -9,11 +9,9 @@
 - HDR imaging을 사용하여 scene radiance values에 선형으로 매핑되는 floating-point precision images 만듦
 - 
 <figure>
-<p align='center'>
   <img src='./image/01.PNG'>
   <figcaption>Fig 1. Two LDR exposures, and an HDR composite tonemapped using the photographic tonemapping
-</figure></p>
-
+</figure>
 
 <p align='center'>
   <img src='./image/dcraw.png' width="500px">
