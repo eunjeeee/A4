@@ -96,7 +96,7 @@ elseif strcmp(WEIGHT_TYPE, 'gaussian')
 </p>
 
 #### Evaluation
-- color checker
+- linearity check 방법 : color checker
 - 패치 4,8,12,16,20,24는 거의 완전한 중립 패치이므로 이상적인 HDR 이미지라면 직선이 생김
 
 <p align='center'>
@@ -132,3 +132,23 @@ for idx_weight=1:3
     end
 end
 ```
+
+## TONEMAPPING
+#### Photographic Tonemapping
+- 톤 매핑 연산자 구현
+
+<p align='center'>
+  <img src='./image/photo_tone.PNG' width="650px">
+</p>
+
+<p align='center'>
+  <img src='./image/photographic.PNG' width="750px">
+</p>
+
+#### Tonemapping Using Bilateral Filtering
+
+<img src='./image/7.png' width="550px">
+
+<p align='center'>
+  <img src='./image/bilateral.PNG' width="750px">
+</p>
