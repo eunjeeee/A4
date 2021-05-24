@@ -12,14 +12,13 @@
 <p align='center'>
   <img src='./image/01.PNG'>
   <figcaption>Fig 1. Two LDR exposures, and an HDR composite tonemapped using the photographic tonemapping
-</p>
-</figure>
+</figure></p>
+
 
 <p align='center'>
   <img src='./image/dcraw.png' width="500px">
 </p>
                                             
-
 
 ```matlab
 list1 = impyramid(frame_list, 'reduce');
